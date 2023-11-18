@@ -12,3 +12,62 @@
 html {
   scroll-behavior: smooth; /* this enables smooth scrolling between internal links */
 }
+*{
+  border-color: inherit;
+}
+body {
+  background-color: #EAE6DE;
+}
+h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  @apply uppercase;
+}
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 7vw;
+  letter-spacing: 0.075em;
+  font-weight: 300;
+  @apply uppercase;
+}
+h2 {
+  font-size: 1.8rem;
+
+  letter-spacing: 0.05em;
+}
+p, a {
+
+  font-family: 'Poppins', sans-serif;
+}
+.button {
+  padding: 0.2rem 1.5rem;
+  @apply border;
+}
+
+header a {
+  padding: 0.5rem 1rem;
+  margin: 0.2rem;
+  @apply inline-block uppercase;
+}
+header nav a {
+ font-size: 0.9rem;
+}
+input, label, textarea {
+  width: 100%;
+  display: block;
+}
+label {
+  border-bottom: 1px solid black;
+  text-transform: uppercase;
+}
+input, textarea{
+  background-color: transparent;
+}
+textarea {
+  border: 1px solid black;
+}
+
+footer a{
+  display: block;
+  padding: 0.2rem;
+  margin: 0.2rem;
+}

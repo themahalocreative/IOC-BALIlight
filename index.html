@@ -1,3 +1,219 @@
 ---
 layout: default
+
+header-links:
+ - link: nav 1
+ - link: nav 2
+ - link: nav 3
+ - link: nav 4
+ - link: nav 5
+ - link: nav 6
+
+image-col:
+  - image_url: images/minimal-2.jpg
+    heading: Duis Aute
+    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, vitae dolor eaque assumenda provident sunt maxime ut architecto omnis consequuntur.
+  - image_url: images/minimal-3.jpg
+    heading: Duis Aute
+    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, vitae dolor eaque assumenda provident sunt maxime ut architecto omnis consequuntur.
+  - image_url: images/minimal-4.jpg
+    heading: Duis Aute
+    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, vitae dolor eaque assumenda provident sunt maxime ut architecto omnis consequuntur.
+
+brand:
+  - name: Brand Name
+  - name: Brand Name
+  - name: Brand Name
+  - name: Brand Name
+  - name: Brand Name
+  - name: Brand Name  
+
+image-gallery:
+  - image_url: images/minimal-6.jpg
+  - image_url: images/minimal-7.jpg
+  - image_url: images/minimal-8.jpg
+  - image_url: images/minimal-9.jpg
+  - image_url: images/minimal-10.jpg
+  - image_url: images/minimal-11.jpg
+
+footer-links1:
+  - link: LINK 1
+  - link: LINK 2
+  - link: LINK 3
+  - link: LINK 4
+
+footer-links2:
+  - link: LINK 1
+  - link: LINK 2
+  - link: LINK 3
+  - link: LINK 4
+
+footer-links3:
+  - link: LINK 1
+  - link: LINK 2
+  - link: LINK 3
+  - link: LINK 4
+  
 ---
+<header class="relative flex items-center justify-between flex-col min-h-screen text-white">
+    <div class="flex justify-between w-full">
+        {% for item in page.header-links limit:3 %}
+        <nav>
+            <a>{{item.link}}</a>
+        </nav>
+        {% endfor %}
+        <a href="">Logo</a>
+        {% for item in page.header-links offset:3 %}
+        <nav>
+            <a>{{item.link}}</a>
+        </nav>
+        {% endfor %}
+    </div>
+    <div class="grow flex items-center justify-center">
+        <!-- grow fill up space flex move around -->
+    <img src="images/minimal-1.jpg" class="h-full w-full top-0  object-cover absolute -z-10">
+    <div class="text-center  self-center">
+        <span class="border-b border-white inline-block w-40"></span>
+        <h1 class="block">This is a heading</h1>
+        <h2 class="block text-lg ">This is a subheading</h2>
+    </div>
+    </div>
+    <!-- <div></div> -->
+</header>
+<section >
+    <div class="max-w-screen-xl mx-auto p-20 pl-10 pr-10" >
+        <h2 class="mb-4">Our Services</h2>
+        <div class="grid grid-cols-3 gap-5">
+            {% for item in page.image-col %}
+            <div class="aspect-square relative">                
+                <div class="text-center">
+                    <img src="{{item.image_url}}" class="w-full h-full absolut object-cover">
+                    <h3  class="border-b p-2">{{item.heading}}</h3>
+                    <p class="pt-2">{{item.description}}</p>
+                </div>                 
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>
+
+<section>
+    <div class="grid grid-cols-[1fr,300px,2fr] bg-cover bg-no-repeat border-t border-r border-l" style="background-image: url('images/minimal-5.jpg');">
+        <div class="">
+
+        </div>
+        <div class="w-[300px] flex flex-col bg-[#EAE6DE] pt-20 pb-20 p-4 border-l border-r">
+            <h2 class="mb-4">who we are</h2>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat non quos aperiam corporis pariatur exercitationem nulla vero. Nostrum assumenda esse magni deserunt quam maxime autem doloribus, eveniet libero eius mollitia.</p>
+            <div>
+                <a href="" class="button">find out more</a>
+            </div>
+            
+        </div>
+        <div></div>
+
+    </div>
+</section>
+
+<section>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-[1px] p-[1px] text-center bg-black">
+        {% for item in page.brand %}
+        <div class="bg-[#EAE6DE]">
+            <span class="py-[0.5rem] px-[1.5rem]">{{item.name}}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section >
+    <div class="max-w-screen-xl mx-auto p-10">
+        <div class="text-center mb-10">
+            <h2 class="p-5">Duis aute irure</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima explicabo id ea a dolor ut, alias unde impedit sunt assumenda iure perferendis facilis. Atque quis odit reprehenderit similique magnam qui!</p>
+        </div>        
+        <div class="grid grid-cols-3 gap-4"> 
+            {% for item in page.image-gallery %}           
+            <div class="aspect-square">
+                <img src="{{item.image_url}}" class="w-full h-full absolut object-cover">
+                <h3>{{item.heading}}</h3>
+                <p>{{item.description}}</p>
+            </div> 
+            {% endfor %}            
+        </div>
+        
+        <div class="text-center flex justify-center m-5">
+            <a href="" class="button">Sign up</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="">
+    <div class="grid grid-cols-7 border">
+        <div class="col-span-3 bg-center bg-cover bg-no-repeat border-r" style="background-image: url('images/minimal-12.jpg');">
+            </div>       
+
+        <div class="col-span-4 flex flex-col justify-between p-20 ">
+            <h2 class="mb-8"> contact us</h2>
+            <form class="contact ">
+                
+                <label for="name" class="border-b">name</label>
+                <input name="name" type="text" id="name" class="">
+                <label for="email">email</label>
+                <input name="email" type="email" id="email" class="">
+                <label for="message" class="border-none">message</label>
+                <textarea for="message" type="text" id="message" class="" rows="5"></textarea>
+                <div class="text-right mt-4">
+                    <button class="button" type="submit" value="SEND">SEND</button>    
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+
+</section>
+<footer>
+    <div class="max-w-screen-xl mx-auto p-10 grid grid-cols-5 md:flex justify-between"> 
+        
+        <div class="pl-1">
+            <h4>Lorem ipsum</h4>            
+            <nav>
+            {% for item in page.footer-links1  %}
+                <a href="">{{item.link}}</a>
+            {% endfor %}
+            </nav>
+        </div>
+        <div class="pl-1">
+            <h4>Lorem ipsum</h4>            
+            <nav>
+            {% for item in page.footer-links2  %}
+                <a href="">{{item.link}}</a>
+            {% endfor %}
+            </nav>
+        </div>
+        <div class="pl-1">
+            <h4>Lorem ipsum</h4>            
+            <nav>
+            {% for item in page.footer-links3  %}
+                <a href="">{{item.link}}</a>
+            {% endfor %}
+            </nav>
+        </div>
+        <form class="col-span-2 text-right">
+            <h4>
+                <label class="pl-0 border-none" for="subscribe">Subscribe to our newsletter</label>                    
+            </h4>
+
+            <input id="subscribe" name="subscribe" type="text" class=" border border-black">
+            <div class="text-right mt-4">
+                <button type="submit" value="SUBSCRIBE" class="button">Subscribe</button>                    
+            </div>
+
+        </form>
+        
+
+    </div>
+</footer>
