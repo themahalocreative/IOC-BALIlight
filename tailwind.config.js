@@ -23,8 +23,8 @@ module.exports = {
       '9xl': ['8rem', '1'],
     },
     fontFamily: {
-      'sans': ['proxima-nova', 'ui-sans-serif'],
-      'sans-tight': ['proxima-nova-condensed', 'ui-sans-serif'],
+      'sans': ['Poppins', 'sans-serif'],
+      'sans-heading': ['Montserrat', 'sans-serif'],
       'mono': ['Inconsolata', 'ui-mono', 'monospace'],
       'soft': ['proxima-soft', 'ui-sans-serif'],
       'soft-tight': ['proxima-soft-condensed', 'ui-sans-serif'],
@@ -53,6 +53,15 @@ module.exports = {
         'portrait-tall': '5/8',
         'portrait': '4/5',
         '5/3': '5 / 3',
+      },
+      colors: {
+        'feature' : {
+          DEFAULT: '#964B00',
+        },
+      },
+      screens: {
+        'xxs': '380px',
+        'xs': '540px',
       },
     },
   },

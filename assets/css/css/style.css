@@ -370,8 +370,6 @@ a {
 a:hover {
   --tw-text-opacity: 1;
   color: rgb(150 75 0 / var(--tw-text-opacity));
-  transition-duration: 100ms;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 .button {
   border-width: 1px;
@@ -472,14 +470,11 @@ input:focus::placeholder {
   color: rgb(150 75 0 / var(--tw-text-opacity));
   opacity: 0.3;
 }
-footer span {
-  margin: 0.1rem;
-  display: block;
-}
-footer a {
-  display: inline-block;
-  padding: 0.15rem;
-}
+footer a{
+    display: block;
+    padding: 0.15rem;
+    margin: 0.1rem;
+  }
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -594,7 +589,6 @@ footer a {
 input  {
   font-family: initial;
   }
-/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BURGER MENU */
 .burger-button {
   position: fixed;
   right: 1rem;
@@ -602,6 +596,11 @@ input  {
   margin-top: 1rem;
   padding-top: 8px;
   padding-bottom: 8px;
+}
+@media (min-width: 640px) {
+  .burger-button {
+    right: 3rem;
+  }
 }
 /*this is where you can chand the color of the buttons*/
 .burger-button span {
@@ -627,24 +626,22 @@ input  {
   bottom: -02px;
 }
 /* make sure this has the same top as the burger button has padding*/
-.burger-button.active .burger-top {
-  position: absolute;
-  top: 8px;
-  --tw-rotate: 45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
+.burger-button.active .burger-top{
+    position: absolute;
+    top: 8px;
+    transform: rotateZ(45deg);
+  }
 .burger-button.active .burger-middle{
   /*   transform: rotateZ(270deg); */
     border-color: rgba(0,0,0,0);
     background-color:rgba(0,0,0,0);
   }
 /* make sure this has the same bottom as the burger button has padding*/
-.burger-button.active .burger-bottom {
-  position: absolute;
-  bottom: 8px;
-  --tw-rotate: -45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
+.burger-button.active .burger-bottom{
+    position: absolute;
+    bottom: 8px;
+    transform: rotateZ(-45deg);
+  }
 .burger-menu {
   position: fixed;
   top: 0px;
@@ -659,40 +656,24 @@ input  {
   overflow-x: hidden;
   border-left-width: 1px;
   border-style: solid;
-  --tw-bg-opacity: 1;
-  background-color: rgb(207 181 157 / var(--tw-bg-opacity));
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
-.burger-menu.active {
-  top: 0px;
-  bottom: 0px;
-  width: 50%;
-  transition-duration: 1000ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-.burger-menu nav {
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-  justify-content: space-around; flex-grow: 1;
-}
+.burger-menu.active{
+    top:0;
+    bottom:0;
+  }
 .burger-menu a {
-  display: block;
-  white-space: nowrap;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-align: center;
-  font-family: Poppins, sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  text-decoration-line: none;
-}
-.burger-menu nav a:last-child {
-  margin-bottom: 2rem;
-}
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+  }
 .absolute {
   position: absolute;
 }
@@ -736,9 +717,6 @@ input  {
 .mt-10 {
   margin-top: 2.5rem;
 }
-.mt-2 {
-  margin-top: 0.5rem;
-}
 .mt-4 {
   margin-top: 1rem;
 }
@@ -768,9 +746,6 @@ input  {
 }
 .min-h-screen {
   min-height: 100vh;
-}
-.w-10 {
-  width: 2.5rem;
 }
 .w-40 {
   width: 10rem;
@@ -1056,14 +1031,6 @@ body {
 .text-scroll a:hover {
   color: unset;
   opacity:0.5;
-}
-.hover\:border-feature:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(150 75 0 / var(--tw-border-opacity));
-}
-.hover\:text-feature:hover {
-  --tw-text-opacity: 1;
-  color: rgb(150 75 0 / var(--tw-text-opacity));
 }
 @media (min-width: 380px) {
   .xxs\:block {

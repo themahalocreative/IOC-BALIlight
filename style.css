@@ -18,56 +18,226 @@ html {
 body {
   background-color: #EAE6DE;
 }
-h2, h3, h4 {
-  font-family: 'Montserrat', sans-serif;
-  @apply uppercase;
+@layer base {
+  h1, h2, h3, h4 {
+    @apply uppercase font-sans-heading;
+  }
+  h1 {
+    @apply md:text-[4rem] text-[7vw] tracking-[0.075em] font-light;
+  }
+  h2 {
+    @apply text-[1.3rem] tracking-[0.05em] leading-[1] font-medium mb-8;
+  }
+  h3 {
+    @apply font-normal leading-[1];
+  }
+  h4 {
+    @apply tracking-[0.05em] font-sans;
+  }
+  p, a {
+    @apply font-sans text-[0.9rem];
+  }
+  a {
+    @apply hover:text-feature duration-100 hover:duration-100 ease-in-out hover:ease-out cursor-pointer;
+  }
+  .button {
+    @apply font-sans border px-[1.5rem] py-[0.2rem] uppercase tracking-[0.06em] duration-200 ease-in-out text-[1rem] hover:text-feature hover:border-feature hover:duration-200 hover:ease-in-out;
+  }
+  header a {
+    @apply inline-block uppercase m-[0.2rem] px-[1rem] py-[0.5rem];
+  }
+  header nav a {
+    @apply text-[.8rem] text-feature hover:text-white hover:opacity-70 hover:duration-300 hover:ease-in-out ;
+  }
+  input, label, textarea {
+    width: 100%;
+    display: block;
+  }
+  
+  input::placeholder, label { 
+    @apply text-black uppercase opacity-100 ;
+  }
+  input::placeholder{
+    @apply border-b;
+  }
+  input, input::placeholder, label {
+    @apply text-black font-sans;
+  }
+  input, textarea{
+    @apply bg-transparent;
+  }
+  textarea {
+    @apply border-black border p-2;
+  }
+  textarea:focus, input:focus{
+    @apply outline-none border-feature;
+  }
+  input:focus::placeholder{
+    @apply  text-feature opacity-30;
+  }
+  footer span{
+    @apply block m-[0.1rem];
+  }
+  footer a{
+    @apply p-[0.15rem] inline-block ;
+  }
 }
-h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 7vw;
-  letter-spacing: 0.075em;
-  font-weight: 300;
-  @apply uppercase;
-}
-h2 {
-  font-size: 1.8rem;
+@layer components {
+  .fancy-img-parent {
+    @apply relative ;
+  }
+  .fancy-img-parent img {
+    @apply absolute h-full w-full object-cover object-center inset-0;
+  } 
+  input  {
+  font-family: initial;
+  }
 
-  letter-spacing: 0.05em;
-}
-p, a {
 
-  font-family: 'Poppins', sans-serif;
-}
-.button {
-  padding: 0.2rem 1.5rem;
-  @apply border;
+  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BURGER MENU */
+  .burger-button {
+    @apply right-[1rem] fixed z-20 mt-[1rem] py-[8px];
+  }
+  /*this is where you can chand the color of the buttons*/
+  .burger-button span {
+    @apply w-[40px] border border-white block border-r-[22px] duration-[2s];
+  }
+  .burger-button.active span{
+    @apply border-feature ;
+  }
+  .burger-top, .burger-bottom{
+    @apply absolute;
+  }
+  .burger-top{
+    @apply top-[-02px];
+  }
+  .burger-bottom{
+    @apply bottom-[-02px];
+  }
+  /* make sure this has the same top as the burger button has padding*/
+  .burger-button.active .burger-top{
+    @apply absolute top-[8px] transform rotate-45;
+  }
+  .burger-button.active .burger-middle{
+  /*   transform: rotateZ(270deg); */
+    border-color: rgba(0,0,0,0);
+    background-color:rgba(0,0,0,0);
+  }
+  /* make sure this has the same bottom as the burger button has padding*/
+  .burger-button.active .burger-bottom{
+    @apply absolute bottom-[8px] transform rotate-[-45deg];
+  }
+  .burger-menu {
+    @apply fixed w-0 overflow-x-hidden top-0 right-[-1px] bottom-0  z-10  border-l border-solid  bg-[#cfb59d] duration-[0.4s] ease-out flex justify-around content-around flex-col;
+  }
+  .burger-menu.active{
+    @apply top-0 bottom-0 w-[50%] duration-1000 ease-in;
+  }
+  .burger-menu nav {
+    @apply flex justify-around content-around flex-col grow;
+  }
+  .burger-menu a {
+    @apply whitespace-nowrap text-center px-[5px] py-[5px] block font-sans font-light text-[20px] no-underline ;
+  } 
+  .burger-menu nav a:last-child{
+    @apply mb-8;
+  }
 }
 
-header a {
-  padding: 0.5rem 1rem;
-  margin: 0.2rem;
-  @apply inline-block uppercase;
-}
-header nav a {
- font-size: 0.9rem;
-}
-input, label, textarea {
-  width: 100%;
-  display: block;
-}
-label {
-  border-bottom: 1px solid black;
-  text-transform: uppercase;
-}
-input, textarea{
-  background-color: transparent;
-}
-textarea {
-  border: 1px solid black;
-}
+  /* Marquee styles -----------------------------------------------------------*/
 
-footer a{
-  display: block;
-  padding: 0.2rem;
-  margin: 0.2rem;
+  :root {--gap: 1px;}
+  .marquee {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    
+  }  
+  .marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+  }   
+  .grow { flex-grow: 1;}
+
+  .marquee__content > * {
+    flex: 0 0 auto;
+    text-align: center;
+    width: calc(100% + 4px);
+  }
+  @-webkit-keyframes scroll {
+    from {
+        -webkit-transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @-moz-keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @-ms-keyframes scroll {
+    from {
+      -ms-transform: translateX(0);
+    }
+    to {
+      -ms-transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @-o-keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  :root {--textspeed-event: 30s;}
+  /* Enable animation  */
+@media (max-width: 1280px){
+
+  .enable-animation .marquee__content {
+    -webkit-animation: scroll var(--textspeed-event) linear infinite;
+    -moz-animation: scroll var(--textspeed-event) linear infinite;
+    -o-animation: scroll var(--textspeed-event) linear infinite;
+    animation: scroll var(--textspeed-event) linear infinite;
+  }
+}
+  /* Pause on hover add to enable animation div*/
+  .marquee--hover-pause:hover .marquee__content {
+    animation-play-state: paused;
+  }
+/* TEXT ANIMATION --------------------------*/
+.text-scroll p, 
+.text-scroll a {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-bottom: 0;
+}
+.text-scroll h3:last-child {margin-bottom: 0.5rem;}
+
+/* .marquee__content > * {
+  flex: 0 0 auto;
+  padding: 0.5rem 2rem;
+  text-align: center;
+} */
+.text-scroll a:hover {
+  color: unset;
+  opacity:0.5;
 }

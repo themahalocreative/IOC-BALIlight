@@ -1,0 +1,36 @@
+<footer >
+    <div class="max-w-screen-xl mx-auto p-10 grid grid-cols-1 text-center sm:text-left sm:grid-cols-3 md:flex justify-between gap-4">  
+        {% for item in site.data.site-settings.footer-navs %}
+        <div class="pl-1 mb-8 sm:mb-0 ">
+            <h4 class="mb-4">{{item.nav}}</h4>            
+            <nav>
+            {% for link-name in item.footer-links  %}
+                <span>
+                    <a href="">{{link-name.link}}</a>
+                </span>
+                
+            {% endfor %}
+            </nav> 
+        </div>
+        {% endfor %}
+        <form class="sm:col-span-3 text-right sm:p-4 md:p-0 flex grid-cols-1 justify-end">
+            <div class="">
+                <h4>
+                <label class="pl-0 border-none mb-4" for="subscribe">
+                    Subscribe to our newsletter
+                </label>                    
+                </h4>    
+                <input id="subscribe" name="subscribe" type="text" class="border px-2 ">
+                <div class="text-right mt-4">
+                    <button type="submit" value="SUBSCRIBE" class="button  border ">Subscribe</button>                    
+                </div>
+            </div>
+        </form>
+
+        
+
+    </div>        
+    <div class="border-t ">
+            <a href="" class="capitalize py-5 px-10 mb-0 mt-0">Terms of use</a>
+        </div>
+</footer>

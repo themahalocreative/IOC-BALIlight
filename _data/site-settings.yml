@@ -1,0 +1,24 @@
+nav-logo: 
+nav-items:
+  - page:
+  - page: 
+  - page: 
+footer-navs:
+    - nav: NAME1
+      footer-links:
+        - link: LINK 1
+        - link: LINK 2
+        - link: LINK 3
+        - link: LINK 4
+    - nav: NAME2
+      footer-links:
+        - link: LINK 1
+        - link: LINK 2
+        - link: LINK 3
+        - link: LINK 4
+    - nav: NAME3
+      footer-links:
+        - link: LINK 1
+        - link: LINK 2
+        - link: LINK 3
+        - link: LINK 4

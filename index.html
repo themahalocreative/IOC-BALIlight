@@ -12,13 +12,13 @@ header-links:
 image-col:
   - image_url: images/minimal-2.jpg
     heading: Duis Aute
-    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, vitae dolor eaque assumenda provident sunt maxime ut architecto omnis consequuntur.
+    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, 
   - image_url: images/minimal-3.jpg
     heading: Duis Aute
-    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, vitae dolor eaque assumenda provident sunt maxime ut architecto omnis consequuntur.
+    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, 
   - image_url: images/minimal-4.jpg
     heading: Duis Aute
-    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, vitae dolor eaque assumenda provident sunt maxime ut architecto omnis consequuntur.
+    description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi, 
 
 brand:
   - name: Brand Name
@@ -55,19 +55,41 @@ footer-links3:
   - link: LINK 4
   
 ---
-<header class="relative flex items-center justify-between flex-col min-h-screen text-white">
-    <div class="flex justify-between w-full">
+<header class="relative flex items-center justify-between flex-col min-h-screen text-white border-b border-feature">
+    <div class="md:flex justify-between items-center w-full hidden px-8 border-b border-feature">
         {% for item in page.header-links limit:3 %}
         <nav>
             <a>{{item.link}}</a>
         </nav>
         {% endfor %}
-        <a href="">Logo</a>
+        <a href="/Gemfile" class="text-[1.2rem]">Logo</a>
         {% for item in page.header-links offset:3 %}
         <nav>
             <a>{{item.link}}</a>
         </nav>
         {% endfor %}
+    </div>
+    <div class="">
+        <div class="md:hidden block relative">
+            <div class="burger-button ">
+                <span class="burger-top"></span>
+                <span class="burger-middle"></span>
+                <span class="burger-bottom"></span>
+            </div>
+            <div class="burger-menu">
+                <a href="/" class="logo text-[1.2rem] text-white hover:text-feature mt-10 border-white hover:border-feature">
+                    Logo
+                    <span class="border-b mt-2 w-10 mx-auto flex"></span>    
+                </a>     
+                <nav class="">
+                    {% for item in page.header-links %}
+                    <a href="/{{nav-items.page | slugify}}" class="pl-[1rem]">{{item.link}}</a>
+                    {% endfor %}                    
+                </nav>
+
+            </div>        
+        </div>
+
     </div>
     <div class="grow flex items-center justify-center">
         <!-- grow fill up space flex move around -->
@@ -75,94 +97,128 @@ footer-links3:
     <div class="text-center  self-center">
         <span class="border-b border-white inline-block w-40"></span>
         <h1 class="block">This is a heading</h1>
-        <h2 class="block text-lg ">This is a subheading</h2>
+        <h2 class="block xxs:text-lg text-[4.2vw]">This is a subheading</h2>
     </div>
     </div>
     <!-- <div></div> -->
 </header>
+
+<!-- block images -->
 <section >
-    <div class="max-w-screen-xl mx-auto p-20 pl-10 pr-10" >
-        <h2 class="mb-4">Our Services</h2>
-        <div class="grid grid-cols-3 gap-5">
+    <div class="max-w-screen-xl mx-auto pb-16 pt-24 xxs:px-16 px-[10%]" >
+        <h2 class="">Our Services</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 text-center">
             {% for item in page.image-col %}
-            <div class="aspect-square relative">                
-                <div class="text-center">
-                    <img src="{{item.image_url}}" class="w-full h-full absolut object-cover">
-                    <h3  class="border-b p-2">{{item.heading}}</h3>
-                    <p class="pt-2">{{item.description}}</p>
-                </div>                 
+            <div class="pb-10">
+                <div class="aspect-square fancy-img-parent border  ">  
+                    <img src="{{item.image_url}}" class="">
+                </div>                    
+                <h3  class="border-b py-4">{{item.heading}}</h3>
+                <p class="pt-4">{{item.description}}</p>      
+                
             </div>
             {% endfor %}
-
         </div>
     </div>
-
 </section>
 
+<!-- BG IMAGE BLOCK -->
 <section>
-    <div class="grid grid-cols-[1fr,300px,2fr] bg-cover bg-no-repeat border-t border-r border-l" style="background-image: url('images/minimal-5.jpg');">
-        <div class="">
-
-        </div>
-        <div class="w-[300px] flex flex-col bg-[#EAE6DE] pt-20 pb-20 p-4 border-l border-r">
-            <h2 class="mb-4">who we are</h2>
-            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat non quos aperiam corporis pariatur exercitationem nulla vero. Nostrum assumenda esse magni deserunt quam maxime autem doloribus, eveniet libero eius mollitia.</p>
+    <div class="grid grid-cols-[90%,10%] xxs:grid-cols-[1fr,350px,2fr] bg-cover bg-no-repeat border-t border-r border-l" style="background-image: url('images/minimal-5.jpg');">
+        <div class="hidden xxs:block"></div>
+        <div class="w-[100%] xxs:w-[350px] min-h-[70vh] flex flex-col justify-center bg-[#EAE6DE] py-20 p-6 border-l border-r">
+            <h2 class="">who we are</h2>
+            <p class="mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat non quos aperiam corporis pariatur exercitationem nulla vero. Nostrum assumenda esse magni deserunt quam maxime autem doloribus, eveniet libero eius mollitia.</p>
             <div>
-                <a href="" class="button">find out more</a>
-            </div>
-            
+                <a href="" class=" button">find out more</a>
+            </div>            
         </div>
         <div></div>
-
     </div>
 </section>
 
+<!-- brand scroll -->
 <section>
-    <div class="grid grid-cols-3 md:grid-cols-6 gap-[1px] p-[1px] text-center bg-black">
-        {% for item in page.brand %}
-        <div class="bg-[#EAE6DE]">
-            <span class="py-[0.5rem] px-[1.5rem]">{{item.name}}</span>
+    <div >
+        <div class="marquee enable-animation marquee--hover-pause">
+            <div class="marquee__content " >
+                <div class="flex gap-[1px] p-[1px] xl:grid xl:grid-cols-6 xl:w-full text-center bg-black ">
+                    {% for item in page.brand %}
+                    <div class="bg-[#EAE6DE] grow">
+                        <span class="py-2 px-8 block">{{item.name}}</span>
+                    </div>        
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="xl:hidden marquee__content " aria-hidden="true">
+                <div class="flex gap-[1px] p-[1px] text-center bg-black ">
+                    {% for item in page.brand %}
+                    <div class="bg-[#EAE6DE] grow">
+                        <span class="py-2 px-8 block">{{item.name}}</span>
+                    </div>        
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-        {% endfor %}
     </div>
-</section>
-
-<section >
-    <div class="max-w-screen-xl mx-auto p-10">
+</section><!-- 
+<section>
+    <div class="grid grid-cols-6   text-center bg-black gap-[1px] p-[-1px]">
+        <div class="text-scroll col-span-6">
+            <div class="marquee enable-animation marquee--hover-pause">
+                <div class="marquee__content ">
+                    {% for item in page.brand %}
+                    <div class="bg-[#EAE6DE]">
+                        <span class="py-[0.5rem] px-[1.5rem]">{{item.name}}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="marquee__content" aria-hidden="true">
+                    {% for item in page.brand %}
+                    <div class="bg-[#EAE6DE]">
+                        <span class="py-[0.5rem] px-[1.5rem]">{{item.name}}</span>
+                    </div>
+                    {% endfor %}
+                </div> 
+            </div>    
+        </div>    
+    </div>
+</section> -->
+<!-- IMAGE GALLERY  -->
+<section>
+    <div class="max-w-screen-xl mx-auto p-[10%] xs:px-10 py-28">
         <div class="text-center mb-10">
-            <h2 class="p-5">Duis aute irure</h2>
+            <h2 class="">Duis aute irure</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima explicabo id ea a dolor ut, alias unde impedit sunt assumenda iure perferendis facilis. Atque quis odit reprehenderit similique magnam qui!</p>
         </div>        
-        <div class="grid grid-cols-3 gap-4"> 
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4"> 
             {% for item in page.image-gallery %}           
-            <div class="aspect-square">
-                <img src="{{item.image_url}}" class="w-full h-full absolut object-cover">
+            <div class="aspect-square fancy-img-parent border">
+                <img src="{{item.image_url}}" class="">
                 <h3>{{item.heading}}</h3>
                 <p>{{item.description}}</p>
             </div> 
             {% endfor %}            
-        </div>
-        
-        <div class="text-center flex justify-center m-5">
+        </div>        
+        <div class="text-center flex justify-center mt-10">
             <a href="" class="button">Sign up</a>
         </div>
     </div>
 </section>
 
-
+<!-- CONTACT FORM -->
 <section class="">
-    <div class="grid grid-cols-7 border">
-        <div class="col-span-3 bg-center bg-cover bg-no-repeat border-r" style="background-image: url('images/minimal-12.jpg');">
+    <div class="grid grid-cols-[10%,90%] xs:grid-cols-7 border">
+        <div class="col-span-1 xs:col-span-3 bg-center bg-cover bg-no-repeat border-r " style="background-image: url('images/minimal-12.jpg');">
             </div>       
 
-        <div class="col-span-4 flex flex-col justify-between p-20 ">
+        <div class="col-span-1 xs:col-span-4 justify-between sm:p-20 p-10">
             <h2 class="mb-8"> contact us</h2>
             <form class="contact ">
                 
-                <label for="name" class="border-b">name</label>
-                <input name="name" type="text" id="name" class="">
-                <label for="email">email</label>
-                <input name="email" type="email" id="email" class="">
+                
+                <input name="name" type="text" id="name" placeholder="name" class="border-b mb-8">
+                <input name="email" type="email" id="email" placeholder="email" class="border-b mb-8">
                 <label for="message" class="border-none">message</label>
                 <textarea for="message" type="text" id="message" class="" rows="5"></textarea>
                 <div class="text-right mt-4">
@@ -175,6 +231,8 @@ footer-links3:
     </div>
 
 </section>
+
+<!-- 
 <footer>
     <div class="max-w-screen-xl mx-auto p-10 grid grid-cols-5 md:flex justify-between"> 
         
@@ -216,4 +274,4 @@ footer-links3:
         
 
     </div>
-</footer>
+</footer> -->
